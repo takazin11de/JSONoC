@@ -1,5 +1,5 @@
 # JSONIC
-JSONIC(JSON with iframe and CSS)
+JSONIC(JSON  iframe and CSS)
 
 ## Overview
 A tool for fetching JSON from cross-origin using JavaScript.
