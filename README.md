@@ -8,11 +8,11 @@ A tool for fetching JSON from cross-origin using JavaScript.
 You can provide the JSON in the following format in CSS (test.json.css) :
 
 ```
-#jsonic{content: '
-{
-  "name" : "Alice",
-  "age" : 20
-}
+#jsonic{content: '\
+{\
+  "name" : "Alice",\
+  "age" : 20\
+}\
 '}
 ```
 
