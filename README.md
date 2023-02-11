@@ -21,9 +21,7 @@ You can retrieve the JSON using the following code:
 ```
 JSONIC.load('example.json.css').then(
   (json)=>{
-    const p = document.createElement('p');
-    p.innerText=JSON.stringify(json);
-    document.body.appendChild(p);
+    console.log(json);
   }
 );
 ```
