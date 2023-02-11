@@ -5,7 +5,7 @@ JSONIC(JSON by iframe and CSS)
 A tool for fetching JSON from cross-origin using JavaScript.
 
 ## Usage
-You can provide the JSON in the following format in CSS (test.json.css) :
+You can provide the JSON in the following format in CSS (example.json.css) :
 
 ```
 #jsonic{content: '\
@@ -19,7 +19,7 @@ You can provide the JSON in the following format in CSS (test.json.css) :
 You can retrieve the JSON using the following code:
 
 ```
-JSONIC.load('test.json.css').then(
+JSONIC.load('example.json.css').then(
   (json)=>{
     const p = document.createElement('p');
     p.innerText=JSON.stringify(json);
