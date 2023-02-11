@@ -10,8 +10,8 @@ You can provide the JSON in the following format in CSS (test.json.css) :
 ```
 #jsonic{content: '
 {
-"name" : "Alice",
-"age" : 20
+  "name" : "Alice",
+  "age" : 20
 }
 '}
 ```
@@ -20,11 +20,11 @@ You can retrieve the JSON using the following code:
 
 ```
 JSONIC.load('test.json.css').then(
-(json)=>{
-const p = document.createElement('p');
-p.innerText=JSON.stringify(json);
-document.body.appendChild(p);
-}
+  (json)=>{
+    const p = document.createElement('p');
+    p.innerText=JSON.stringify(json);
+    document.body.appendChild(p);
+  }
 );
 ```
 
