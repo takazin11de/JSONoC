@@ -20,8 +20,10 @@ Fetch JSON(JSONPIC) file:
 JSON(JSONPIC)ファイルの読込:
 
 ```
-// JSONPIC.fetch( url , timeout(ms) ).
+// JSONPIC.fetch( url , timeout(ms) )
+
 async function sample(){
+
   JSONPIC.fetch('https://foo.com/data1.json.css',5000).then(
     (json)=>{
       console.log(json);
@@ -32,12 +34,14 @@ async function sample(){
     }
   );
 
+
   try {
     let json = await JSONPIC.fetch('https://bar.com/data2.json.css',5000);
     console.log(json);
   } catch(e) {
     console.log(e); // e : "timeout" or "error"(file not found OR JSON Syntax Error)
   }
+
 }
 ```
 Result:
@@ -54,6 +58,7 @@ Convert JavaScript-object to JSON(JSONPIC):
 jsオブジェクトからJSON(JSONPIC)への変換:
 ```
 // JSONPIC.cnv( js_object )
+
 let json = JSONPIC.cnv(
   {
     name : "Alice",
