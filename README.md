@@ -1,20 +1,24 @@
 # JSONPIC
 JSONPIC(JSON with Padding through iframe and CSS)
-JSONPIC(JSONをCSSでパディングしたものをiframeの中で読み込む)
 
 ## Overview
 A tool for fetching JSON from cross-origin using JavaScript.
+
 JavaScriptでクロスオリジンにおいてもJSONを読み込む事ができるライブラリです。
 
 ## Usage
 You can provide the JSON in the following format in CSS (demo.json.css):
+
 JSONを下記のようにCSSでパディングし設置します。  (demo.json.css):
+
 ```
 body{content:'{"name":"Alice","age":20}'}
 ```
 
 Fetch JSON(JSONPIC) file:
+
 JSON(JSONPIC)ファイルの読込:
+
 ```
 JSONPIC.fetch('demo.json.css').then(
   (json)=>{
@@ -27,13 +31,16 @@ JSONPIC.fetch('demo.json.css').then(
 );
 ```
 Result:
+
 実行結果:
+
 ```
 {name: 'Alice', age: 20}
 ```
 
 
 Convert JavaScript-object to JSON(JSONPIC):
+
 jsオブジェクトからJSON(JSONPIC)への変換:
 ```
 let json = JSONPIC.cnv(
@@ -45,13 +52,16 @@ let json = JSONPIC.cnv(
   console.log(json);
 ```
 Result:
+
 実行結果:
 ```
 body{content:'{"name":"Alice","age":20}'}
 ```
 
 **Note:** It is important to escape both the JSON and the CSS in the provided CSS file.
-※ JSON(JSONPIC)ファイルはCSSのエスケープとJSONのエスケープのどちらも施してください。
+
+**(注)** JSON(JSONPIC)ファイルはCSSのエスケープとJSONのエスケープのどちらも施してください。
+
 ```
 {text : " \ "} or {text : " \\ "}
                 -->  body{content:'{"text" : " \\\\ "}'}
