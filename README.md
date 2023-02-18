@@ -76,3 +76,7 @@ body{content:'{"name":"Alice","age":20}'}
 {text : " \t "}  -->  body{content:'{"text" : " \\t "}'}
 
 ```
+
+**Note:** JSONPIC cannot be used under Web Worker because it uses DOM operations.
+
+**(注)** JSONPICはDOM操作を使用しているため、Web Workerのもとで使用することができません。
