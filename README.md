@@ -8,17 +8,12 @@ A tool for fetching JSON from cross-origin using JavaScript.
 You can provide the JSON in the following format in CSS (demo.json.css) :
 
 ```
-body{content: '\
-{\
-  "name" : "Alice",\
-  "age" : 20\
-}\
-'}
+body{content:'{"name":"Alice","age":20}'}
 ```
 
 You can retrieve the JSON using the following code:
 
-Fetch JSON(JSONPIC) file
+Fetch JSONPIC file
 ```
 JSONPIC.fetch('demo.json.css').then(
   (json)=>{
@@ -36,7 +31,7 @@ Result
 ```
 
 
-Convert to JSON(JSONPIC) data
+Convert object to JSONPIC
 ```
 let json = JSONPIC.cnv(
   {
