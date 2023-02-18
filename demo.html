@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="jsonpic.min.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <script>
+      JSONPIC.fetch("demo.json.css",5000)
+      .then(
+        (json)=>{
+          const p = document.createElement("p");
+          p.innerText = 
+            JSON.stringify(json) +
+            "\n---\n" +
+            JSONPIC.cnv(json);
+          document.body.appendChild(p);
+        }
+      )
+      .catch(
+        (error) =>{
+          const p = document.createElement("p");
+          p.innerText = error;
+          document.body.appendChild(p);
+        }
+      );
+    </script>
+  </body>
+</html>
