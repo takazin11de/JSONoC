@@ -1,5 +1,5 @@
 # JSONPIC
-JSONPIC(JSON with Padding through iframe and CSS)
+JSON with Padding through iframe and CSS
 
 ## Overview
 A tool for fetching JSON from cross-origin using JavaScript.
