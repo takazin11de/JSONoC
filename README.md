@@ -69,9 +69,10 @@ Result:
 実行結果:
 
 ```
-body{content:'{"name":"Alice","age":20}'}
+p{--j:"eJyrVspLzE1VslJyzMlMTlXSUUpMT1WyMjKoBQBktgdz";}
 ```
+jsonのデータをDeflate圧縮したのちにbase64で表現しcssに埋め込んでいます。
 
-**Note:** JSONPIC cannot be used under Web Worker because it uses DOM operations.
+**Note:** JSO_CSS cannot be used under Web Worker because it uses DOM operations.
 
-**(注)** JSONPIC は DOM 操作を使用しているため、Web Worker のもとで使用することができません。
+**(注)** JSO_CSS は DOM 操作を使用しているため、Web Worker のもとで使用することができません。
