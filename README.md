@@ -1,6 +1,6 @@
 # jso_css
 
-JSON with Padding through iframe and CSS
+JSON with Padding through iframe, Shadow DOM and CSS
 
 ## Overview
 
