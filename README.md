@@ -69,9 +69,9 @@ Result:
 実行結果:
 
 ```
-p{--j:"eJyrVspLzE1VslJyzMlMTlXSUUpMT1WyMjKoBQBktgdz";}
+p{--j:'{"name":"Alice","age":20}';}
 ```
-jsonのデータをDeflate圧縮したのちにbase64で表現しcssに埋め込んでいます。
+
 
 **Note:** JSO_CSS cannot be used under Web Worker because it uses DOM operations.
 
