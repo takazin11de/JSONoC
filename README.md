@@ -18,7 +18,7 @@ Fetch JSON(json.css) file:
 
 async function sample(){
 
-  JSO_CSS.fetch('https://foo.com/data1.json.css',5000,"").then(
+  JSONoC.fetch('https://foo.com/data1.json.css',5000,"").then(
     (json)=>{
       console.log(json);
     }
