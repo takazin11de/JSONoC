@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="jso_css.js"></script>
+  <script src="jsonoc.js"></script>
   <title>_</title>
 </head>
 <body>
   <script>
     (async () => {
       try {
-        json = await JSO_CSS.fetch("test.jso.css", 5000);
+        json = await JSONoC.fetch("test.jso.css", 5000, "");
         const p = document.createElement("p");
         p.innerText =
-          "fetch " +
-          JSON.stringify(json) +
-          "\ncnv " +
-          JSO_CSS.cnv({
+          "fetch \n" +
+          JSON.stringify(json) + "\n\n" +
+          "cnv \n" +
+          JSONoC.cnv({
             name: "Bob",
             age: 35
-          }) +
-          "\n\n";
+          }, "");
         document.body.appendChild(p);
       } catch (e) {
         const p = document.createElement("p");

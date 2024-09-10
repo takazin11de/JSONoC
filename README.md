@@ -1,25 +1,24 @@
-# jso_css
+# JSONoC
 
-JSON with Padding through iframe, Shadow DOM and CSS
+JSON over CSS
 
-## Overview
-
-A tool for fetching JSON from cross-origin using JavaScript.
+## 概要 Overview
 
 JavaScript でクロスオリジンにおいても JSON を読み込む事ができるライブラリです。
 
-## Usage
+A tool for fetching JSON from cross-origin using JavaScript.
 
-Fetch JSON(jso.css) file:
+## 使い方 Usage
 
-JSON(jso.css)ファイルの読込:
+JSON(json.css)ファイルの読込:
+Fetch JSON(json.css) file:
 
 ```
-// JSO_CSS.fetch( url , timeout(ms) )
+// JSONoC.fetch( url , timeout(ms), key )
 
 async function sample(){
 
-  JSO_CSS.fetch('https://foo.com/data1.jso.css',5000).then(
+  JSO_CSS.fetch('https://foo.com/data1.json.css',5000,"").then(
     (json)=>{
       console.log(json);
     }
@@ -31,7 +30,7 @@ async function sample(){
 
 
   try {
-    let json = await JSO_CSS.fetch('https://bar.com/data2.jso.css',5000);
+    let json = await JSONoC.fetch('https://bar.com/data2.json.css',5000,"");
     console.log(json);
   } catch(e) {
     console.log(e); // e : "timeout" or "error"(file not found OR JSON Syntax Error)
@@ -40,39 +39,37 @@ async function sample(){
 }
 ```
 
-Result:
-
-実行結果:
+実行結果 Result:
 
 ```
 {name: 'Alice', age: 20}
 ```
 
-Convert JavaScript-object to JSON(JSO_CSS):
+js オブジェクトから JSON(json.css)への変換:
 
-js オブジェクトから JSON(JSO_CSS)への変換:
+Convert JavaScript-object to JSON(json.css):
 
 ```
-// JSO_CSS.cnv( js_object )
+// JSONoC.cnv( js_object, key )
 
-let json = JSO_CSS.cnv(
+let json = JSONoC.cnv(
   {
     name : "Alice",
     age  : 20
-  }
+  }, ""
   );
   console.log(json);
 ```
 
-Result:
-
-実行結果:
+実行結果 Result:
 
 ```
-p{--j:'{"name":"Alice","age":20}';}
+#_{--j:'{"name":"Alice","age":20}';}
 ```
 
+引数keyを指定すると
 
-**Note:** JSO_CSS cannot be used under Web Worker because it uses DOM operations.
+**(注)** JSONoC は DOM 操作を使用しているため、Web Worker のもとで使用することができません。
 
-**(注)** JSO_CSS は DOM 操作を使用しているため、Web Worker のもとで使用することができません。
+**Note:** JSONoC cannot be used under Web Worker because it uses DOM operations.
+
