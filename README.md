@@ -64,7 +64,7 @@ let json = JSONoC.cnv(
 実行結果 Result:
 
 ```
-#_{--j:'{"name":"Alice","age":20}';}
+#_{--_:'{"name":"Alice","age":20}';}
 ```
 
 引数keyを指定するとkeyを知っている場合のみjsonを取得できるようになるため、JSONPでいうところのコールバック関数名のように使用することが可能です。

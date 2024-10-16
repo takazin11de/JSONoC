@@ -1,31 +1,27 @@
 class JSONoC {
   static #iframe;
-  static fetch = async (url, timeout, key) => {
+  static fetch = async (url, timeout, key = ``) => {
     const doc = document;
     if (!this.#iframe) {
       this.#iframe = doc.createElement(`iframe`);
-      const style = this.#iframe.style;
-      style.visibility = `hidden`;
-      style.position = `absolute`;
-      doc.body.appendChild(this.#iframe);
+      this.#iframe.setAttribute(`style`, `visibility:hidden;position:fixed;`);
       await new Promise((resolve) => {
         this.#iframe.onload = () => {
           resolve();
         };
+        doc.body.appendChild(this.#iframe);
       });
     }
-    const idoc = this.#iframe.contentWindow.document;
     const p = doc.createElement(`p`);
-    let timer;
     const timer_task = new Promise((resolve, reject) => {
-      timer = setTimeout(() => {
+      setTimeout(() => {
         p.remove();
-        reject("timeout");
+        reject(`timeout`);
       }, timeout);
     });
-    idoc.body.appendChild(p);
-    const shadow = p.attachShadow({ mode: "open" });
-    const link = idoc.createElement("link");
+    this.#iframe.contentDocument.body.appendChild(p);
+    const shadow = p.attachShadow({ mode: `open` });
+    const link = doc.createElement(`link`);
     link.rel = `stylesheet`;
     link.href = url;
     const css_onload = new Promise((resolve, reject) => {
@@ -33,7 +29,7 @@ class JSONoC {
         try {
           const content = getComputedStyle(
             shadow.childNodes[1]
-          ).getPropertyValue("--j");
+          ).getPropertyValue(`--_`);
           resolve(JSON.parse(content.trim().slice(1, -1)
             .replaceAll(`$5`, '`')
             .replaceAll(`$4`, `'`)
@@ -44,11 +40,9 @@ class JSONoC {
           ));
         } catch (e) {
           reject(e);
-        } finally {
-          p.remove();
-          clearTimeout(timer);
         }
       };
+      link.onerror = () => { reject(`error`); };
     });
     shadow.appendChild(link);
     const p2 = doc.createElement(`p`);
@@ -56,8 +50,8 @@ class JSONoC {
     shadow.appendChild(p2);
     return await Promise.race([timer_task, css_onload]);
   };
-  static cnv = (json, key) => {
-    return `#${CSS.escape(`_${key}`)}{--j:'${(JSON.stringify(json))
+  static cnv = (json, key = ``) => {
+    return `#${CSS.escape(`_${key}`)}{--_:'${(JSON.stringify(json))
       .replaceAll(`$`, `$0`)
       .replaceAll(`\\\\`, `$1`)
       .replaceAll(`\\"`, `$2`)

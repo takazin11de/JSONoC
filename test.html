@@ -8,7 +8,7 @@
   <script>
     (async () => {
       try {
-        json = await JSONoC.fetch("test.jso.css", 5000, "");
+        json = await JSONoC.fetch("test.json.css", 5000);
         const p = document.createElement("p");
         p.innerText =
           "fetch \n" +
@@ -17,7 +17,7 @@
           JSONoC.cnv({
             name: "Bob",
             age: 35
-          }, "");
+          });
         document.body.appendChild(p);
       } catch (e) {
         const p = document.createElement("p");
