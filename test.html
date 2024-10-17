@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <script src="jsonoc.js"></script>
-  <title>_</title>
-</head>
+<html lang>
+<script src="jsonoc.js"></script>
+<title>_</title>
 <body>
   <script>
-    (async () => {
-      try {
-        json = await JSONoC.fetch("test.json.css", 5000);
-        const p = document.createElement("p");
+    const p = document.createElement("p");
+    JSONoC.fetch("test.json.css", 5000)
+      .then((json) => {
         p.innerText =
           "fetch \n" +
           JSON.stringify(json) + "\n\n" +
@@ -18,13 +15,13 @@
             name: "Bob",
             age: 35
           });
-        document.body.appendChild(p);
-      } catch (e) {
-        const p = document.createElement("p");
+      })
+      .catch((e) => {
         p.innerText = e;
+      })
+      .finally(() => {
         document.body.appendChild(p);
-      }
-    })();
+      });
   </script>
 </body>
 </html>
