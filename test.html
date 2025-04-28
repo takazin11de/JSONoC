@@ -4,15 +4,17 @@
 <title>_</title>
 <script>
   addEventListener("DOMContentLoaded", function () {
+    let p = document.createElement('p')
+    document.body.appendChild(p);
     JSONoC.fetch("test.json.css", 5000)
       .then(function (json) {
-        document.body.innerText += "fetch success : \n" + JSON.stringify(json) + "\n\n";
+        p.innerText += "fetch success : \n" + JSON.stringify(json) + "\n\n";
       })
       .catch(function (error) {
-        document.body.innerText += "fetch error : \n" + error + "\n\n";
+        p.innerText += "fetch error : \n" + error + "\n\n";
       })
       .finally(function () {
-        document.body.innerText += "create json.css : \n" + JSONoC.cnv({ name: "Bob", age: 35 });
+        p.innerText += "create json.css : \n" + JSONoC.cnv({ name: "Bob", age: 35 }) + "\n\n";
       });
   });
 </script>
