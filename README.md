@@ -73,3 +73,6 @@ let json = JSONoC.cnv(
 
 **Note:** JSONoC cannot be used under Web Worker because it uses DOM operations.
 
+**(注)** body要素の中身が消去されると、JSONoCが正常に動作しなくなる可能性があります。
+(body要素の直下にiframeを作成しているため)
+
