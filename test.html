@@ -2,26 +2,20 @@
 <html lang>
 <script src="jsonoc.js"></script>
 <title>_</title>
-<body>
-  <script>
-    const p = document.createElement("p");
+<script>
+  addEventListener("DOMContentLoaded", function () {
     JSONoC.fetch("test.json.css", 5000)
-      .then((json) => {
-        p.innerText =
-          "fetch \n" +
-          JSON.stringify(json) + "\n\n" +
-          "cnv \n" +
-          JSONoC.cnv({
-            name: "Bob",
-            age: 35
-          });
+      .then(function (json) {
+        document.body.innerText += "fetch success : \n" + JSON.stringify(json) + "\n\n";
       })
-      .catch((e) => {
-        p.innerText = e;
+      .catch(function (error) {
+        document.body.innerText += "fetch error : \n" + error + "\n\n";
       })
-      .finally(() => {
-        document.body.appendChild(p);
+      .finally(function () {
+        document.body.innerText += "create json.css : \n" + JSONoC.cnv({ name: "Bob", age: 35 });
       });
-  </script>
+  });
+</script>
+<body>
 </body>
 </html>
